@@ -102,3 +102,12 @@ async function fetchData() {
 }
 
 setInterval(fetchData, 1000);
+
+
+let counter = 0;
+function logHello() {
+  counter = counter + 1;
+  console.log('hello', counter)
+}
+//execute logHello every 1000 milliseconds (1 second)
+setInterval(logHello, 1000);

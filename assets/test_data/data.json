@@ -18,7 +18,7 @@
   },
   "current": {
       "observation_time": "10:18 AM",
-      "temperature": 30,
+      "temperature": 0,
       "weather_code": 116,
       "weather_icons": [
           "https://cdn.worldweatheronline.com/images/wsymbols01_png_64/wsymbol_0002_sunny_intervals.png"
