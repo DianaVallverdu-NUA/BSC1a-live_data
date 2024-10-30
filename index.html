@@ -8,29 +8,36 @@
     <title>Weather App</title>
   </head>
   <body>
+    <!-- wind animated images -->
+    <img id="leave1" class="animated" src="assets/stations/autumn.png" />
+    <img id="leave2" class="animated" src="assets/stations/autumn.png" />
+    <img id="leave3" class="animated" src="assets/stations/autumn.png" />
+
     <div class="container flex-column">
       <h1>My Weather Station</h1>
       <div class="container justify-start">
+        <!-- temperature slider -->
         <div class="container flex-column">
           <h2>Temperature</h2>
           <div id="temp-container">
-          <input
-            id="temperature-slider"
-            type="range"
-            min="0"
-            max="60"
-            class="vertical-slider"
-          />
+            <input
+              id="temperature-slider"
+              type="range"
+              min="0"
+              max="60"
+              class="vertical-slider"
+            />
           </div>
           <p>
-          <span id="temperature-value">30</span>
-          <span>°C</span>
-        </p>
+            <span id="temperature-value">30</span>
+            <span>°C</span>
+          </p>
         </div>
 
+        <!-- wind slider -->
         <div class="container flex-column">
           <h2>Wind</h2>
-          <input id="wind-slider" type="range" min="0" max="32" step="0.1" />
+          <input id="wind-slider" type="range" min="0" max="73" step="0.1" />
           <p>
             <span id="wind-value"></span>
             <span>m / s</span>
