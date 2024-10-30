@@ -22,12 +22,19 @@
             class="vertical-slider"
           />
           </div>
+          <p>
           <span id="temperature-value">30</span>
+          <span>°C</span>
+        </p>
         </div>
 
         <div class="container flex-column">
           <h2>Wind</h2>
-          <input type="range" />
+          <input id="wind-slider" type="range" min="0" max="32" step="0.1" />
+          <p>
+            <span id="wind-value"></span>
+            <span>m / s</span>
+          </p>
         </div>
       </div>
     </div>
