@@ -1,7 +1,16 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.justify-start {
+  justify-content: start;
 }
 
 .flex-column {
@@ -12,38 +21,39 @@
   transform: rotate(90deg);
 }
 
-.translateY-150px {
-  translate: 0 150px;
-}
 
-.translateY-300px {
-  translate: 0 300px;
-}
-
-.slider {
+.vertical-slider {
   /* position: fixed; */
   -webkit-appearance: none;
   appearance: none;
   width: 300px;
   height: 35px;
-  background-image: linear-gradient(to right, yellow, red);
   outline: none;
   opacity: 0.7;
   transition: opacity 0.2s;
   transform: rotate(-90deg);
+  translate: 0 150px;
   border-radius: 5px;
 
   overflow: hidden;
 }
-.slider::-webkit-slider-thumb {
+.vertical-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: 0px;
   box-shadow: -300px 0px 0 300px #a84caf;
   cursor: pointer;
 }
-.slider::-moz-range-thumb {
+.vertical-slider::-moz-range-thumb {
   width: 0px;
   box-shadow: -300px 0px 0px 300px #a84caf;
   cursor: pointer;
+}
+
+#temp-container {
+  height: 320px;
+}
+
+#temperature-slider {
+  background-image: linear-gradient(to right, yellow, red);
 }

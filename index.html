@@ -10,21 +10,24 @@
   <body>
     <div class="container flex-column">
       <h1>My Weather Station</h1>
-      <div class="container">
+      <div class="container justify-start">
         <div class="container flex-column">
           <h2>Temperature</h2>
+          <div id="temp-container">
           <input
             id="temperature-slider"
             type="range"
             min="0"
             max="60"
-            class="slider translateY-150px"
+            class="vertical-slider"
           />
-          <span class="translateY-300px" id="temperature-value">30</span>
+          </div>
+          <span id="temperature-value">30</span>
         </div>
 
-        <div>
-          <h2></h2>
+        <div class="container flex-column">
+          <h2>Wind</h2>
+          <input type="range" />
         </div>
       </div>
     </div>
