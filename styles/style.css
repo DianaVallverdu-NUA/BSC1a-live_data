@@ -39,13 +39,11 @@
   -webkit-appearance: none;
   appearance: none;
   width: 0px;
-  height: 25px;
   box-shadow: -300px 0px 0 300px #a84caf;
   cursor: pointer;
 }
 .slider::-moz-range-thumb {
   width: 0px;
-  height: 25px;
-  box-shadow: -500px 0px 0 500px #a84caf;
+  box-shadow: -300px 0px 0px 300px #a84caf;
   cursor: pointer;
 }
