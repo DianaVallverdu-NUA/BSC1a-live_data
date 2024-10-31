@@ -1,3 +1,7 @@
+body {
+  overflow: hidden;
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -6,4 +10,107 @@
 
 .flex-column {
   flex-direction: column;
+}
+
+.leaf {
+  position: absolute;
+  z-index: 2;
+  width: 100px;
+  animation: leafmovement 12s linear infinite;
+}
+
+#main-div {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* vertical slider values */
+.vertical-slider {
+  /* rotate 90 degrees counter clockwise */
+  transform: rotate(-90deg);
+  translate: 0 50px;
+}
+
+.horizontal-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.horizontal-slider:hover {
+  opacity: 1;
+}
+.horizontal-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  background-size: 25px;
+}
+.horizontal-slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  background-size: 25px;
+}
+
+#wind-slider::-webkit-slider-thumb {
+  background-image: url(/assets/sliders/wind.png);
+}
+
+#wind-slider::-moz-range-thumb {
+  background-image: url(/assets/sliders/wind.png);
+}
+
+#humidity-slider::-webkit-slider-thumb {
+  background-image: url(/assets/sliders/humidity.png);
+}
+
+#humidity-slider::-moz-range-thumb {
+  background-image: url(/assets/sliders/humidity.png);
+}
+
+/* set temperature div wrapper to 300px height to prevent overflowing */
+#temperature-div {
+  height: 120px;
+}
+
+#temperature-slider {
+  -webkit-appearance: none;
+  appearance: none;
+
+  background-image: linear-gradient(-90deg, red, yellow);
+}
+
+@keyframes leafmovement {
+  0% {
+    transform: translate(-100px, 0) rotate(0);
+  }
+  20% {
+    transform: translate(15vw, 10vh) rotate(85deg);
+  }
+  65% {
+    transform: translate(55vw, 12vh) rotate(550deg);
+  }
+  80% {
+    transform: translate(70vw, 17vh) rotate(740deg);
+  }
+  100% {
+    transform: translate(100vw, 25vh) rotate(920deg);
+  }
+}
+
+#humidity-filter {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 3;
+  background-color: blue;
+  opacity: 0.5;
 }
