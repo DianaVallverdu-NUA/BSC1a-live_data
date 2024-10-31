@@ -1,4 +1,4 @@
-// const apiUrl = "http://localhost:5500/assets/data/test.json";
+// const apiUrl = "http://localhost:5500/assets/data/test.json";s
 const apiUrl = "http://api.weatherstack.com/current?";
 const urlParams = {
   query: "Norwich",
