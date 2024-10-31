@@ -1,5 +1,5 @@
 // const apiUrl = "http://localhost:5500/assets/data/test.json";s
-const apiUrl = "http://api.weatherstack.com/current?";
+const apiUrl = "https://api.weatherstack.com/current?";
 const urlParams = {
   query: "Norwich",
   access_key: "31c2be1ceacb391cc162ad3af2b216c9",
