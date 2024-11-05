@@ -39,9 +39,9 @@ async function fetchData() {
     const json = await response.json();
 
     //update functions
-    updateTemperature(json.current.temperature);
-    updateWind(json.current.wind_speed);
     udpateHumidity(json.current.humidity);
+    updateWind(json.current.wind_speed);
+    updateTemperature(json.current.temperature);
   } catch (error) {
     console.error(error);
   }
