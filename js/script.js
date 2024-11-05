@@ -1,9 +1,9 @@
-// const apiUrl = "http://localhost:5500/assets/data/test.json";s
-const apiUrl = "https://api.weatherstack.com/current?";
-const urlParams = {
-  query: "Norwich",
-  access_key: "31c2be1ceacb391cc162ad3af2b216c9",
-};
+const apiUrl = "/assets/data/test.json";
+// const apiUrl = "https://api.weatherstack.com/current?";
+// const urlParams = {
+//   query: "Norwich",
+//   access_key: "31c2be1ceacb391cc162ad3af2b216c9",
+// };
 
 //sliders
 const humiditySlider = document.getElementById("humidity-slider");
@@ -27,7 +27,8 @@ const humidityFilter = document.getElementById("humidity-filter");
 async function fetchData() {
   try {
     //get response from api
-    const response = await fetch(apiUrl + new URLSearchParams(urlParams));
+    const response = await fetch(apiUrl);
+    // const response = await fetch(apiUrl + new URLSearchParams(urlParams));
 
     //check response is ok
     if (!response.ok) {
