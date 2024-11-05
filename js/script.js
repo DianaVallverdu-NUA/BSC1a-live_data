@@ -71,6 +71,6 @@ function updateTemperature(temperature) {
   temperatureValue.innerHTML = temperature;
 }
 
-fetchData();
+// fetchData();
 //fetch data every half second
-// setInterval(fetchData, 500);
+setInterval(fetchData, 500);

@@ -63,3 +63,5 @@ async function fetchData() {
 ```
 
 This function will be used to load and update the data from the API. Currently, we are faking the fetch with our downloaded data. This is due to a limit to the API: it only allows for 100 calls per month. Until the website is ready to be published, let's keep this test data as the used one.
+
+3. Now, we need to execute this function. As opposed to the first data task, this function must be executed every second. 
