@@ -18,10 +18,10 @@ For the app that we are creating today, it is necessary to obtain an API key. Fo
 2. Open Postman and either log in or choose to use the simple version with no login required.
 3. Create a GET request with following properties:
 
-- url: <https://api.weatherstack.com/current>
-- Query Params:
-  - key: query , value: Norwich
-  - key: access_key , value: \<your access key>
+    - url: <https://api.weatherstack.com/current>
+    - Query Params:
+    - key: query , value: Norwich
+    - key: access_key , value: \<your access key>
 
 4. Press Send
 5. Copy the text obtained in the reponse
@@ -34,35 +34,35 @@ Create a `script.js` file, and:
 
 1. add following variable declaration at the top:
 
-```JS
-const apiUrl = "/assets/data/test.json";
-```
+    ```JS
+    const apiUrl = "/assets/data/test.json";
+    ```
 
 2. Create following function:
 
-```JavaScript
-async function fetchData() {
-  try {
-    //get response from api
-    const response = await fetch(apiUrl);
+    ```JavaScript
+    async function fetchData() {
+    try {
+        //get response from api
+        const response = await fetch(apiUrl);
 
-    //check response is ok
-    if (!response.ok) {
-      throw new Error("Response Status: ", response.status);
+        //check response is ok
+        if (!response.ok) {
+        throw new Error("Response Status: ", response.status);
+        }
+
+        //obtain json
+        const json = await response.json();
+
+        console.log(json);
+    } catch (error) {
+        console.error(error);
+    }
     }
 
-    //obtain json
-    const json = await response.json();
+    ```
 
-    console.log(json);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-```
-
-This function will be used to load and update the data from the API. Currently, we are faking the fetch with our downloaded data. This is due to a limit to the API: it only allows for 100 calls per month. Until the website is ready to be published, let's keep this test data as the used one.
+    This function will be used to load and update the data from the API. Currently, we are faking the fetch with our downloaded data. This is due to a limit to the API: it only allows for 100 calls per month. Until the website is ready to be published, let's keep this test data as the used one.
 
 3. Now, we need to execute this function. As opposed to the first data task, this function must be executed every second, as the data fetched is live and changing constantly (even if we have a static file atm, it will still be helpful to set it up like this for testing purposes). To do so, add the following line at the bottom of the screen:
 
@@ -83,72 +83,54 @@ All three sliders can be updated in the same way. For each slider:
 
 (you can change these values)
 2. In the HTML, create three `p` elements in the `index.html`, below each of the sliders, which contain a `span` to represent the value of said property and a `span` to display the unit of said property. For example:
-
-```HTML
-<p><span id="temperature-value"></span><span>ºC</span></p>
-```
-
-You can check all units in the [`weatherstack` documentation](https://weatherstack.com/documentation), in the  `Current Weather` section.
-
+    ```HTML
+    <p><span id="temperature-value"></span><span>ºC</span></p>
+    ```
+    You can check all units in the [`weatherstack` documentation](https://weatherstack.com/documentation), in the  `Current Weather` section.
 3. In the JS, create three variables that point to each of the sliders adapted in step 1, name them `humiditySlider`, `windSlider` and `temperatureSlider` that point to each of these sliders respectively.
-
 4. In the JS, create three variables that point to each of the spans created in step 2, name them  `humidityValue`, `windValue`, and `temperatureValue`.
-
 5. Create three new functions `udpateHumidity`, `updateWind`, `updateTemperature`. Each of these should have a parameter named `newValue`. For example:
-
-```JS
-function updateHumidity(newValue) {
-
-}
-```
-
-6. Inside each of the functions, update the respective `value` property of each slider to the variable `newValue`. For example:
-
-```JS
-function updateHumidity(value) {
-    // update slider
-    humiditySlider.value = newValue;
-}
-```
-
-7. Inside each of the functions, update the respective `innerHTML` of each value variable to `newValue`. For example:
-
-```JS
-function updateHumidity(value) {
-    // update slider
-    humiditySlider.value = newValue;
-    
-    // update displayed value
-    humidityValue.innerHTML = humidity;
-}
-```
-
-8. Execute these functions in succession inside the `fetchData` function, passing the corresponding value to each of them:
-
-```JS
-async function fetchData() {
-  try {
-    //get response from api
-    const response = await fetch(apiUrl);
-
-    //check response is ok
-    if (!response.ok) {
-      throw new Error("Response Status: ", response.status);
+    ```JS
+    function updateHumidity(newValue) {
     }
-
-    //obtain json
-    const json = await response.json();
-
-    //update functions
-    udpateHumidity(json.current.humidity);
-    updateWind(json.current.wind_speed);
-    updateTemperature(json.current.temperature);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-```
+    ```
+6. Inside each of the functions, update the respective `value` property of each slider to the variable `newValue`. For example:
+    ```JS
+    function updateHumidity(value) {
+        // update slider
+        humiditySlider.value = newValue;
+    }
+    ```
+7. Inside each of the functions, update the respective `innerHTML` of each value variable to `newValue`. For example:
+    ```JS
+    function updateHumidity(value) {
+        // update slider
+        humiditySlider.value = newValue;
+        // update displayed value
+        humidityValue.innerHTML = humidity;
+    }
+    ```
+8. Execute these functions in succession inside the `fetchData` function, passing the corresponding value to each of them:
+    ```JS
+    async function fetchData() {
+    try {
+        //get response from api
+        const response = await fetch(apiUrl);
+        //check response is ok
+        if (!response.ok) {
+        throw new Error("Response Status: ", response.status);
+        }
+        //obtain json
+        const json = await response.json();
+        //update functions
+        udpateHumidity(json.current.humidity);
+        updateWind(json.current.wind_speed);
+        updateTemperature(json.current.temperature);
+    } catch (error) {
+        console.error(error);
+    }
+    }
+    ```
 
 **Note:** The way to know which specific property of `json.current.propertyName` is to look at the file `test.json`. You'll see how the file is organized as follows:
 
