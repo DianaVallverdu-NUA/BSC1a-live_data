@@ -47,28 +47,29 @@ async function fetchData() {
   }
 }
 
-function udpateHumidity(humidity) {
+function udpateHumidity(newValue) {
   
-  humiditySlider.value = humidity;
-  humidityValue.innerHTML = humidity;
+  humiditySlider.value = newValue;
+  humidityValue.innerHTML = newValue;
 
-  humidityFilter.style.opacity = (0.5 * Number(humidity)) / 100;
+  humidityFilter.style.opacity = (0.5 * Number(newValue)) / 100;
 }
 
-function updateWind(windSpeed) {
-  windSlider.value = windSpeed;
-  windValue.innerHTML = windSpeed;
+function updateWind(newValue) {
+  windSlider.value = newValue;
+  windValue.innerHTML = newValue;
 
-  const newDuration = ((32 - Number(windSpeed)) * 11) / 32 + 1;
+  let newDuration = ((408 - Number(newValue)) * 11) / 408 + 1;
+  if(newDuration < 0.1) newDuration = 0.1;
 
   for (const leaf of leafAnimations) {
     leaf.style.animationDuration = newDuration + "s";
   }
 }
 
-function updateTemperature(temperature) {
-  temperatureSlider.value = temperature;
-  temperatureValue.innerHTML = temperature;
+function updateTemperature(newValue) {
+  temperatureSlider.value = newValue;
+  temperatureValue.innerHTML = newValue;
 }
 
 // fetchData();
