@@ -39,11 +39,7 @@ async function fetchData() {
     const json = await response.json();
 
     //update functions
-    updateValue(temperatureSlider, temperatureValue, json.current.temperature);
-    updateValue(windSlider, windValue, json.current.wind_speed);
-    updateValue(humiditySlider, humidityValue, json.current.humidity);
-
-    ///
+    updateTemperature(json.current.temperature);
     updateWind(json.current.wind_speed);
     udpateHumidity(json.current.humidity);
   } catch (error) {
@@ -52,10 +48,17 @@ async function fetchData() {
 }
 
 function udpateHumidity(humidity) {
+  
+  humiditySlider.value = humidity;
+  humidityValue.innerHTML = humidity;
+
   humidityFilter.style.opacity = (0.5 * Number(humidity)) / 100;
 }
 
 function updateWind(windSpeed) {
+  windSlider.value = windSpeed;
+  windValue.innerHTML = windSpeed;
+
   const newDuration = ((32 - Number(windSpeed)) * 11) / 32 + 1;
 
   for (const leaf of leafAnimations) {
@@ -63,9 +66,9 @@ function updateWind(windSpeed) {
   }
 }
 
-function updateValue(sliderElement, valueElement, value) {
-  sliderElement.value = value;
-  valueElement.innerHTML = value;
+function updateTemperature(temperature) {
+  temperatureSlider.value = temperature;
+  temperatureValue.innerHTML = temperature;
 }
 
 fetchData();

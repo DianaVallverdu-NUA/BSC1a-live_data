@@ -18,7 +18,7 @@ For the app that we are creating today, it is necessary to obtain an API key. Fo
 2. Open Postman and either log in or choose to use the simple version with no login required.
 3. Create a GET request with following properties:
 
-- url: https://api.weatherstack.com/current
+- url: <https://api.weatherstack.com/current>
 - Query Params:
   - key: query , value: Norwich
   - key: access_key , value: \<your access key>
@@ -33,4 +33,33 @@ For the app that we are creating today, it is necessary to obtain an API key. Fo
 Create a `script.js` file, and:
 
 1. add following variable declaration at the top:
-`const apiUrl
+
+```JS
+const apiUrl = "/assets/data/test.json";
+```
+
+2. Create following function:
+
+```JavaScript
+async function fetchData() {
+  try {
+    //get response from api
+    const response = await fetch(apiUrl);
+
+    //check response is ok
+    if (!response.ok) {
+      throw new Error("Response Status: ", response.status);
+    }
+
+    //obtain json
+    const json = await response.json();
+
+    console.log(json);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+```
+
+This function will be used to load and update the data from the API. Currently, we are faking the fetch with our downloaded data. This is due to a limit to the API: it only allows for 100 calls per month. Until the website is ready to be published, let's keep this test data as the used one.
